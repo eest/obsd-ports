@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# $OpenBSD$
+
+daemon="${TRUEPREFIX}/sbin/ods-control"
+
+. /etc/rc.d/rc.subr
+
+rc_reload=NO
+
+pexp="ods-"
+
+rc_reload=NO
+
+rc_start() {
+	${rcexec} "${daemon} start"
+}
+
+rc_stop() {
+	${daemon} stop
+}
+
+rc_check() {
+	pkill -0 "^${pexp}"
+}
+
+rc_cmd $1
