@@ -1,0 +1,21 @@
+$OpenBSD$
+--- configure.orig	Sat Apr 26 21:59:55 2014
++++ configure	Sat Apr 26 22:00:31 2014
+@@ -4352,7 +4352,7 @@ fi
+ 
+ 
+ 	BOTAN_INCLUDES="-I$BOTAN_PATH/include/botan-1.10"
+-	BOTAN_LIBS="-L$BOTAN_PATH/lib -lbotan-1.10"
++	BOTAN_LIBS="-L$BOTAN_PATH/lib -lbotan-1.10 -lbz2 -lcrypto -lgmp -lpthread -lz"
+ 	tmp_CPPFLAGS=$CPPFLAGS
+ 	tmp_LIBS=$LIBS
+ 	CPPFLAGS="$CPPFLAGS $BOTAN_INCLUDES"
+@@ -16255,7 +16255,7 @@ CFLAGS=$lt_save_CFLAGS
+ 
+ 
+ 
+-softhsmdbdir=${full_localstatedir}/lib/softhsm
++softhsmdbdir=${full_localstatedir}/db/softhsm
+ 
+ 
+ 
