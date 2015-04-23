@@ -10,7 +10,7 @@ CATEGORIES=	security
 
 HOMEPAGE=	http://www.opendnssec.org/
 
-MAINTAINER=	Patrik Lundin <patrik.lundin.swe@gmail.com>
+MAINTAINER=	Patrik Lundin <patrik@sigterm.se>
 
 # BSD
 PERMIT_PACKAGE_CDROM=	Yes
