@@ -1,0 +1,1 @@
+Lock files using the flock() call.

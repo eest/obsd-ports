@@ -1,0 +1,9 @@
+@comment $OpenBSD$
+${P5SITE}/File/
+${P5SITE}/File/Flock/
+${P5SITE}/File/Flock.pm
+${P5SITE}/File/Flock/Forking.pm
+${P5SITE}/File/Flock/Subprocess.pm
+@man man/man3p/File::Flock.3p
+@man man/man3p/File::Flock::Forking.3p
+@man man/man3p/File::Flock::Subprocess.3p
