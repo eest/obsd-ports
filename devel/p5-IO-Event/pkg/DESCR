@@ -1,0 +1,3 @@
+IO::Event provides a object-based callback system for handling
+nonblocking IO. The design goal is to provide a system that just does
+the right thing w/o the user needing to think about it much.

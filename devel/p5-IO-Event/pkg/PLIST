@@ -1,0 +1,11 @@
+@comment $OpenBSD$
+${P5SITE}/IO/
+${P5SITE}/IO/Event/
+${P5SITE}/IO/Event.pm
+${P5SITE}/IO/Event.pod
+${P5SITE}/IO/Event/AnyEvent.pm
+${P5SITE}/IO/Event/Callback.pm
+${P5SITE}/IO/Event/Emulate.pm
+${P5SITE}/IO/Event/Event.pm
+@man man/man3p/IO::Event.3p
+@man man/man3p/IO::Event::Callback.3p
