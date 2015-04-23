@@ -1,0 +1,12 @@
+$OpenBSD$
+--- collector/cron/upload-rsync.sh.orig	Sat Jan 11 20:48:17 2014
++++ collector/cron/upload-rsync.sh	Sat Jan 11 20:48:49 2014
+@@ -5,7 +5,7 @@ set -e
+ PATH=/usr/bin:/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+ export PATH
+ PROG=`basename $0`
+-PREFIX=/usr/local/dsc
++PREFIX=/var/dsc
+ 
+ NODE=$1; shift
+ DEST=$1; shift

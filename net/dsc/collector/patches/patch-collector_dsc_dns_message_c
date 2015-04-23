@@ -1,0 +1,11 @@
+$OpenBSD$
+--- collector/dsc/dns_message.c.orig	Sat Jan 11 14:42:50 2014
++++ collector/dsc/dns_message.c	Sat Jan 11 14:42:58 2014
+@@ -6,7 +6,6 @@
+ #include <string.h>
+ #include <sys/types.h>
+ #include <arpa/nameser.h>
+-#include <arpa/nameser_compat.h>
+ 
+ #include <sys/types.h>
+ #include <regex.h>

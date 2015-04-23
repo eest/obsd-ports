@@ -1,0 +1,12 @@
+$OpenBSD$
+--- presenter/grapher/update-dat-file-locations.sh.orig	Sun Jan 12 14:22:01 2014
++++ presenter/grapher/update-dat-file-locations.sh	Sun Jan 12 14:22:27 2014
+@@ -2,7 +2,7 @@
+ 
+ set -e
+ 
+-cd /usr/local/dsc/data
++cd /var/dsc/data
+ for SERVER in *; do
+ 	test -d $SERVER || continue
+ 	echo "Server $SERVER..."

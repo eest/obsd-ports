@@ -1,0 +1,11 @@
+$OpenBSD$
+--- presenter/extractor/dsc-xml-extractor.pl.orig	Sun Jan 12 14:00:39 2014
++++ presenter/extractor/dsc-xml-extractor.pl	Sun Jan 12 14:01:15 2014
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env perl
+ 
+-# script must be run from /usr/local/dsc/data/$server/$node directory
++# script must be run from /var/dsc/data/$server/$node directory
+ #
+ 
+ use warnings;

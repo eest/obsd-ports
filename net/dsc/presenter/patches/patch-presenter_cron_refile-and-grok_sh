@@ -1,0 +1,21 @@
+$OpenBSD$
+--- presenter/cron/refile-and-grok.sh.orig	Sun Jan 12 13:46:10 2014
++++ presenter/cron/refile-and-grok.sh	Sun Jan 12 13:47:15 2014
+@@ -1,7 +1,7 @@
+ #!/bin/sh
+ set -e
+ 
+-cd /usr/local/dsc/data
++cd /var/dsc/data
+ 
+ PROG=`basename $0`
+ exec >$PROG.stdout
+@@ -9,7 +9,7 @@ exec >$PROG.stdout
+ #set -x
+ date
+ 
+-EXECDIR=/usr/local/dsc/libexec
++EXECDIR=/usr/local/libexec/dsc
+ export EXECDIR SERVER NODE
+ 
+ for SERVER in * ; do

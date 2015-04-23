@@ -1,0 +1,21 @@
+$OpenBSD$
+--- presenter/cron/Makefile.orig	Sun Jan 12 13:42:52 2014
++++ presenter/cron/Makefile	Sun Jan 12 13:44:44 2014
+@@ -2,14 +2,14 @@
+ SCRIPTS += refile-and-grok.sh
+ SCRIPTS += remove-xmls.pl
+ 
+-INSTALLDIR=/usr/local/dsc
++INSTALLDIR=${PREFIX}
+ 
+ all:
+ 
+ install:
+ 	@if test -n "$(INSTALLDIR)" ; then echo "installing in $$INSTALLDIR" ; else echo "set INSTALLDIR first"; false ; fi
+-	test -d $(INSTALLDIR)/libexec || mkdir $(INSTALLDIR)/libexec
+-	install -m 755 $(SCRIPTS) $(INSTALLDIR)/libexec/
++	install -d 755 $(INSTALLDIR)/libexec/dsc
++	install -m 755 $(SCRIPTS) $(INSTALLDIR)/libexec/dsc
+ 
+ clean:
+ 	

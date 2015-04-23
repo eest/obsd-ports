@@ -1,0 +1,27 @@
+$OpenBSD$
+--- collector/dsc/Makefile.in.orig	Thu Feb 23 22:38:43 2012
++++ collector/dsc/Makefile.in	Sat Jan 11 17:19:46 2014
+@@ -4,7 +4,7 @@ CFLAGS=-g -Wall -DUSE_IPV6=1
+ CPPFLAGS = ${CFLAGS}
+ MYCPPFLAGS = -g -DUSE_IPV6=1 -I $(HAPY)/src/include -I/usr/local/include
+ TODAY != date +%Y%m%d
+-INSTALLDIR=/usr/local/dsc
++INSTALLDIR=${PREFIX}
+ 
+ LDFLAGS += @LDFLAGS@	# from configure
+ CFLAGS += @CFLAGS@	# from configure
+@@ -65,12 +65,9 @@ $(PROG): $(OBJS) $(LIBHAPY)
+ 
+ install: $(PROG)
+ 	@if test -n "$(INSTALLDIR)" ; then echo "installing in $$INSTALLDIR" ; else echo "set INSTALLDIR first"; false ; fi
+-	install -d -m 755 $(INSTALLDIR)/bin/
+-	install -d -m 755 $(INSTALLDIR)/etc/
+-	install -d -m 755 $(INSTALLDIR)/var/
+-	install -d -m 755 $(INSTALLDIR)/var/log/
+ 	install -m 755 $(PROG) $(INSTALLDIR)/bin/
+-	install -m 644 $(PROG).conf.sample $(INSTALLDIR)/etc/
++	install -d 755 $(INSTALLDIR)/share/examples/$(PROG)
++	install -m 644 $(PROG).conf.sample $(INSTALLDIR)/share/examples/$(PROG)/
+ 
+ clean:
+ 	rm -f $(OBJS)

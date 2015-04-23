@@ -1,0 +1,14 @@
+@comment $OpenBSD$
+@bin bin/dsc
+libexec/dsc/
+libexec/dsc/upload-prep.pl
+libexec/dsc/upload-rsync.sh
+libexec/dsc/upload-ssh.sh
+libexec/dsc/upload-x509.sh
+share/doc/pkg-readmes/${FULLPKGNAME}
+share/examples/dsc/
+@sample ${SYSCONFDIR}/dsc/
+share/examples/dsc/dsc.conf.sample
+@sample ${SYSCONFDIR}/dsc/dsc.conf
+@rcscript ${RCDIR}/dsc
+@sample /var/dsc/run/

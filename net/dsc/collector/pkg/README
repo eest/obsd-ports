@@ -1,0 +1,25 @@
+$OpenBSD$
+
+* Steps needed to start the dsc collector:
+    * Edit the following settings in /etc/dsc/dsc.conf:
+        * local_address
+        * run_dir
+        * interface
+
+    * Create the directory mentioned in "run_dir" above:
+        # mkdir $(awk -F\" '/^run_dir/{print $2}' /etc/dsc/dsc.conf)
+
+    * At this point you can start dsc via rc.d, it will start writing XML files to your "run_dir".
+
+* Steps needed to start uploading the XML files to a presenter:
+    * Come up with a name for your presenter, this example will use the name "presenter".
+
+    * Create an upload directory inside "run_dir" with a directory named after the presenter:
+        # mkdir -p $(awk -F\" '/^run_dir/{print $2}' /etc/dsc/dsc.conf)/upload/presenter
+
+    * Enable the upload-prep.pl script:
+        # echo "* * * * * root /usr/local/libexec/dsc/upload-prep.pl" >> /etc/crontab
+
+    * Decide how to get the files to your presenter:
+        * Sending files from the collector can be accomplished using the scripts in ${TRUEPREFIX}/libexec/dsc/.
+        * Pulling files from the presenter is left to the reader to implement.

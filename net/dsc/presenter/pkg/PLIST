@@ -1,0 +1,36 @@
+@comment $OpenBSD$
+@sample /var/dsc/cache/
+@sample /var/dsc/data/
+libdata/perl5/site_perl/DSC/
+libdata/perl5/site_perl/DSC/extractor/
+libdata/perl5/site_perl/DSC/extractor.pm
+libdata/perl5/site_perl/DSC/extractor/config.pm
+libdata/perl5/site_perl/DSC/grapher/
+libdata/perl5/site_perl/DSC/grapher.pm
+libdata/perl5/site_perl/DSC/grapher/config.pm
+libdata/perl5/site_perl/DSC/grapher/plot.pm
+libdata/perl5/site_perl/DSC/grapher/template.pm
+libdata/perl5/site_perl/DSC/grapher/text.pm
+libdata/perl5/site_perl/DSC/mysql.pm
+libdata/perl5/site_perl/DSC/ploticus.pm
+libdata/perl5/site_perl/DSC/putfile.pm
+libexec/dsc/
+libexec/dsc/dsc-grapher.pl
+libexec/dsc/dsc-grapher.pl.sample
+libexec/dsc/dsc-xml-extractor.pl
+libexec/dsc/put-file.pl
+libexec/dsc/refile-and-grok.sh
+libexec/dsc/remove-xmls.pl
+share/dsc/
+share/dsc/html/
+share/dsc/html/1downarrow.png
+share/dsc/html/1leftarrow.png
+share/dsc/html/1rightarrow.png
+share/dsc/html/1uparrow.png
+share/dsc/html/2downarrow.png
+share/dsc/html/2leftarrow.png
+share/dsc/html/2rightarrow.png
+share/dsc/html/2uparrow.png
+share/dsc/html/plot.page
+share/examples/dsc/
+share/examples/dsc/dsc-grapher.cfg.sample

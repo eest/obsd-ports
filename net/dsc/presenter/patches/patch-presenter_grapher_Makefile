@@ -1,0 +1,34 @@
+$OpenBSD$
+--- presenter/grapher/Makefile.orig	Thu Sep 15 23:51:58 2005
++++ presenter/grapher/Makefile	Sun Jan 12 14:57:37 2014
+@@ -13,21 +13,20 @@ SHAREHTMLFILES	+= icons/2leftarrow.png
+ SHAREHTMLFILES	+= icons/2rightarrow.png
+ SHAREHTMLFILES	+= icons/2uparrow.png
+ 
+-INSTALLDIR=/usr/local/dsc
++INSTALLDIR=${PREFIX}
+ 
+ all:
+ 
+ install:
+ 	@if test -n "${INSTALLDIR}" ; then echo "installing in $$INSTALLDIR" ; else echo "set INSTALLDIR first"; false ; fi
+-	@test -d ${INSTALLDIR}/libexec/ || mkdir ${INSTALLDIR}/libexec/
+-	install -m 755 ${LIBEXECFILES} ${INSTALLDIR}/libexec/
+-	test -f ${INSTALLDIR}/libexec/dsc-grapher.pl || install -m 755 dsc-grapher.pl.sample ${INSTALLDIR}/libexec/dsc-grapher.pl
+-	install -m 755 ${LIBEXECFILES} ${INSTALLDIR}/libexec/
+-	@test -d ${INSTALLDIR}/etc/ || mkdir ${INSTALLDIR}/etc/
+-	install -m 644 ${ETCFILES} ${INSTALLDIR}/etc/
+-	@test -d ${INSTALLDIR}/share/ || mkdir ${INSTALLDIR}/share/
+-	@test -d ${INSTALLDIR}/share/html || mkdir ${INSTALLDIR}/share/html/
+-	install -m 644 ${SHAREHTMLFILES} ${INSTALLDIR}/share/html/
++	install -d 755 ${INSTALLDIR}/libexec/dsc
++	install -m 755 ${LIBEXECFILES} ${INSTALLDIR}/libexec/dsc
++	install -m 755 dsc-grapher.pl.sample ${INSTALLDIR}/libexec/dsc/dsc-grapher.pl
++	install -m 755 ${LIBEXECFILES} ${INSTALLDIR}/libexec/dsc/
++	install -d 755 ${INSTALLDIR}/share/examples/dsc/
++	install -m 644 ${ETCFILES} ${INSTALLDIR}/share/examples/dsc/
++	install -d 755 ${INSTALLDIR}/share/dsc/html/
++	install -m 644 ${SHAREHTMLFILES} ${INSTALLDIR}/share/dsc/html/
+ 
+ clean:
+ 	

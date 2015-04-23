@@ -1,0 +1,11 @@
+$OpenBSD$
+--- collector/dsc/dns_protocol.c.orig	Sat Jan 11 14:41:32 2014
++++ collector/dsc/dns_protocol.c	Sat Jan 11 14:41:38 2014
+@@ -6,7 +6,6 @@
+ #include <assert.h>
+ #include <ctype.h>
+ #include <arpa/nameser.h>
+-#include <arpa/nameser_compat.h>
+ #include <syslog.h>
+ 
+ #include "xmalloc.h"

@@ -1,0 +1,12 @@
+$OpenBSD$
+--- collector/cron/upload-prep.pl.orig	Sat Jan 11 20:25:41 2014
++++ collector/cron/upload-prep.pl	Sat Jan 11 20:27:17 2014
+@@ -20,7 +20,7 @@ exit 0 if Proc::PID::File->running(dir => '/tmp');
+ sleep 3;
+ 
+ 
+-foreach my $conf (</usr/local/dsc/etc/*.conf>) {
++foreach my $conf (</etc/dsc/*.conf>) {
+ 	next unless open (CONF, $conf);
+ 	my $rundir = undef;
+ 	while (<CONF>) {

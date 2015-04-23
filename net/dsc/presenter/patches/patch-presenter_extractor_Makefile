@@ -1,0 +1,23 @@
+$OpenBSD$
+--- presenter/extractor/Makefile.orig	Sun Jan 12 13:58:54 2014
++++ presenter/extractor/Makefile	Sun Jan 12 13:59:34 2014
+@@ -2,7 +2,7 @@
+ LIBEXECS += dsc-xml-extractor.pl
+ LIBEXECS += put-file.pl
+ 
+-INSTALLDIR=/usr/local/dsc
++INSTALLDIR=${PREFIX}
+ 
+ all:
+ 	@if perl -c -e 'use DSC::extractor;' 2>/dev/null ; then \
+@@ -14,8 +14,8 @@ all:
+ 
+ install: all
+ 	@if test -n "$(INSTALLDIR)" ; then echo "installing in $$INSTALLDIR" ; else echo "set INSTALLDIR first"; false ; fi
+-	install -d -m 755 $(INSTALLDIR)/libexec/
+-	install -m 755 $(LIBEXECS) $(INSTALLDIR)/libexec/
++	install -d -m 755 $(INSTALLDIR)/libexec/dsc
++	install -m 755 $(LIBEXECS) $(INSTALLDIR)/libexec/dsc
+ 
+ clean:
+ 	

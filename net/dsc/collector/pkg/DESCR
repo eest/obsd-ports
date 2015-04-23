@@ -1,0 +1,7 @@
+This is the collector part of DSC (DNS Statistics Collector).  It
+listens for DNS traffic on a network interface and records statistics.
+The collector can run on the DNS server itself our on another host
+listening via a port mirror.
+
+The resulting XML files can be parsed by the DSC presenter available as
+a few scripts from the same source this package is built from.
