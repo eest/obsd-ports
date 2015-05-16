@@ -12,6 +12,8 @@ HOMEPAGE=	http://www.opendnssec.org/
 
 MAINTAINER=	Patrik Lundin <patrik@sigterm.se>
 
+BROKEN-i386=	ods-signerd crashes with segmentation fault
+
 # BSD
 PERMIT_PACKAGE_CDROM=	Yes
 
