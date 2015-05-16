@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# This script automates the initial setup steps for the opendnssec port and
+# print instructions on how to cause a crash on the i386 arch. If opendnssec is
+# installed it will be reinstalled in a clean state.
+
 # Perform cleanup if opendnssec is currently installed
 if [ -d /var/opendnssec ]; then
     pkill ods-

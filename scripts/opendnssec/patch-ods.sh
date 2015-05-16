@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# This script cleans up all opendnssec related files from the system and
+# prints instructions on how to add patches.
+
 # Perform cleanup if opendnssec is currently installed
 if [ -d /var/opendnssec ]; then
     pkill ods-
