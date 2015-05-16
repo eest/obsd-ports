@@ -31,20 +31,20 @@ FAKE_FLAGS=	sysconfdir=${PREFIX}/share/examples/opendnssec
 CONFIGURE_STYLE= gnu
 CONFIGURE_ARGS+= --disable-pedantic
 
-FLAVORS=	sqlite3 mysql
+FLAVORS=	sqlite3 mariadb
 FLAVOR?=	sqlite3
 
 .if ${FLAVOR:Msqlite3}
 WANTLIB+=	sqlite3
 .endif
 
-.if ${FLAVOR:Mmysql}
+.if ${FLAVOR:Mmariadb}
 CONFIGURE_ARGS+= --with-database-backend=mysql
 WANTLIB+=	mysqlclient_r ssl
-LIB_DEPENDS+=	databases/mysql
+LIB_DEPENDS+=	databases/mariadb
 .endif
 
-.if ${FLAVOR:Msqlite3} && ${FLAVOR:Mmysql}
+.if ${FLAVOR:Msqlite3} && ${FLAVOR:Mmariadb}
 ERRORS+= "Fatal: mutually exclusive flavors: ${FLAVORS}"
 .endif
 
