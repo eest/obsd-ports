@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# To get the most out of this script, make sure to build the port with
+# debug symbols:
+# echo 'DEBUG=-g' > /etc/mk.conf
+
 # This script automates the initial setup steps for the opendnssec port and
 # print instructions on how to cause a crash on the i386 arch. If opendnssec is
 # installed it will be reinstalled in a clean state.
