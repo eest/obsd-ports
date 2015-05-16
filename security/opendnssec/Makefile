@@ -4,7 +4,7 @@ SHARED_ONLY=	Yes
 
 COMMENT=	open-source turn-key solution for DNSSEC
 
-DISTNAME=	opendnssec-1.4.6
+DISTNAME=	opendnssec-1.4.7
 
 CATEGORIES=	security
 
