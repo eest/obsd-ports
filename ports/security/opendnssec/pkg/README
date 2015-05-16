@@ -26,8 +26,8 @@ Make sure the token is writeable by the _opendnssec user:
 
 Bootstrapping OpenDNSSEC
 ------------------------
-Create an initial KASP database (if you are running the mysql flavor you
-will first need to setup mysqld and modify <Datastore> in
+Create an initial KASP database (if you are running the mariadb flavor you
+will first need to configure mariadb-server and modify <Datastore> in
 ${SYSCONFDIR}/opendnssec/conf.xml):
 # ods-ksmutil setup
 
