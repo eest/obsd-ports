@@ -32,7 +32,7 @@ ${SYSCONFDIR}/opendnssec/conf.xml):
 # ods-ksmutil setup
 
 Start the OpenDNSSEC system:
-# ${SYSCONFDIR}/rc.d/opendnssec start
+# rcctl start opendnssec
 
 Copy an unsigned zone file into the unsigned/ directory:
 # cp <somewhere>/example.com ${LOCALSTATEDIR}/opendnssec/unsigned/
