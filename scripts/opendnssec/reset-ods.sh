@@ -16,9 +16,6 @@ fi
 cd /usr/ports/security/opendnssec
 make install
 
-#YBS
-cp /root/yuri/conf.xml /etc/opendnssec/
-
 # Initialize softhsm
 softhsm --init-token --slot 0 --label OpenDNSSEC --so-pin 1234 --pin 1234
 chown _opendnssec /var/opendnssec/softhsm/slot0.db
@@ -32,8 +29,6 @@ echo
 cp /root/example.com /var/opendnssec/unsigned/
 
 # Crank up the verbosity
-#ods-signer verbosity 6
-##YBS
 ods-signer verbosity 9
 
 # List the currently running processes:
