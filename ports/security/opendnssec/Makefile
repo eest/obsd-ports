@@ -34,13 +34,15 @@ CONFIGURE_ARGS+= --disable-pedantic
 FLAVORS=	sqlite3 mariadb
 FLAVOR?=	sqlite3
 
+WANTLIB+=	lzma
+
 .if ${FLAVOR:Msqlite3}
 WANTLIB+=	sqlite3
 .endif
 
 .if ${FLAVOR:Mmariadb}
 CONFIGURE_ARGS+= --with-database-backend=mysql
-WANTLIB+=	mysqlclient_r ssl
+WANTLIB+=	mysqlclient_r ssl stdc++
 LIB_DEPENDS+=	databases/mariadb
 .endif
 
