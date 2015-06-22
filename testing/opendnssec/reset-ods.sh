@@ -25,6 +25,7 @@ fi
 # Install the package
 cd /usr/ports/security/opendnssec
 make install
+cd -
 
 # Initialize softhsm
 softhsm --init-token --slot 0 --label OpenDNSSEC --so-pin 1234 --pin 1234
