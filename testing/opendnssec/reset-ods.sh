@@ -8,6 +8,8 @@
 # print instructions on how to cause a crash on the i386 arch. If opendnssec is
 # installed it will be reinstalled in a clean state.
 
+script_dir=`dirname $0`
+
 # Perform cleanup if opendnssec is currently installed
 if [ -d /var/opendnssec ]; then
     pkill ods-
@@ -34,7 +36,7 @@ echo
 /etc/rc.d/opendnssec start
 
 # Add the unsigned zone file
-cp /root/example.com /var/opendnssec/unsigned/
+cp ${script_dir}/example.com /var/opendnssec/unsigned/
 
 # Crank up the verbosity
 ods-signer verbosity 9
