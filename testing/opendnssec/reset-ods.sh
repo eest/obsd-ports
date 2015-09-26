@@ -27,6 +27,9 @@ cd /usr/ports/security/opendnssec
 make install
 cd -
 
+# Configure softhsm
+echo "0:/var/opendnssec/softhsm/slot0.db" > /etc/softhsm.conf
+
 # Initialize softhsm
 softhsm --init-token --slot 0 --label OpenDNSSEC --so-pin 1234 --pin 1234
 chown _opendnssec /var/opendnssec/softhsm/slot0.db
