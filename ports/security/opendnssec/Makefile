@@ -4,7 +4,7 @@ SHARED_ONLY=	Yes
 
 COMMENT=	open-source turn-key solution for DNSSEC
 
-DISTNAME=	opendnssec-1.4.8
+DISTNAME=	opendnssec-1.4.8.2
 
 CATEGORIES=	security
 
@@ -17,7 +17,7 @@ PERMIT_PACKAGE_CDROM=	Yes
 
 WANTLIB += c crypto iconv ldns m pthread xml2 z
 
-MASTER_SITES=	http://dump.komsi.se/source/testing/
+MASTER_SITES=	http://dist.opendnssec.org/source/
 
 LIB_DEPENDS=	net/ldns/libldns \
 		textproc/libxml
