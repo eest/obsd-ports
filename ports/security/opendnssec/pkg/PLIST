@@ -65,7 +65,7 @@ share/opendnssec/addns.rng
 share/opendnssec/conf.rnc
 share/opendnssec/conf.rng
 %%sqlite3%%
-%%mariadb%%
+%%mysql%%
 share/opendnssec/enforcerstate.rnc
 share/opendnssec/enforcerstate.rng
 share/opendnssec/kasp.rnc
