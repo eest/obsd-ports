@@ -1,6 +1,6 @@
 @comment $OpenBSD$
-@newgroup _opendnssec:505
-@newuser _opendnssec:505:_opendnssec:daemon:OpenDNSSEC Account:/nonexistent:/sbin/nologin
+@newgroup _opendnssec:757
+@newuser _opendnssec:757:_opendnssec:daemon:OpenDNSSEC Account:/nonexistent:/sbin/nologin
 @bin bin/ods-getconf
 @bin bin/ods-hsmspeed
 @bin bin/ods-hsmutil
