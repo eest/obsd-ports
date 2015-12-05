@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# $OpenBSD$
+
+daemon="${TRUEPREFIX}/sbin/keactrl"
+
+. /etc/rc.d/rc.subr
+
+pexp="${TRUEPREFIX}/sbin/kea-dhcp(4|6) -c ${SYSCONFDIR}/kea/kea.conf"
+
+rc_start() {
+	${rcexec} "${daemon} start"
+}
+
+rc_stop() {
+	${daemon} stop
+}
+
+rc_cmd $1
