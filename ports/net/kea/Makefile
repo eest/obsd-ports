@@ -1,6 +1,6 @@
 # $OpenBSD$
 
-COMMENT=	KEA DHCP server
+COMMENT=	high-performance and extensible DHCP server engine by ISC
 
 VERSION=	0.9.2
 
