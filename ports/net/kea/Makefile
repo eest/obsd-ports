@@ -16,14 +16,15 @@ MAINTAINER=	Patrik Lundin <patrik@sigterm.se>
 
 CONFIGURE_STYLE=	gnu
 
+FLAVORS=	mysql postgresql
+FLAVOR?=
+
 BUILD_DEPENDS=	devel/boost
 
 LIB_DEPENDS=	devel/log4cplus
 
 # ISC
 PERMIT_PACKAGE_CDROM=	Yes
-
-WANTLIB += c crypto log4cplus m pthread stdc++
 
 SHARED_LIBS +=  kea-asiodns               0.0 # 0.0
 SHARED_LIBS +=  kea-asiolink              0.0 # 2.0
@@ -41,6 +42,21 @@ SHARED_LIBS +=  kea-stats                 0.0 # 1.0
 SHARED_LIBS +=  kea-threads               0.0 # 0.0
 SHARED_LIBS +=  kea-util-io               0.0 # 0.0
 SHARED_LIBS +=  kea-util                  0.0 # 1.0
+
+WANTLIB += c crypto log4cplus m pthread stdc++
+
+.if ${FLAVOR:Mmysql}
+CONFIGURE_ARGS+= --with-dhcp-mysql=/usr/local/bin/mysql_config
+LIB_DEPENDS+=	databases/mariadb
+WANTLIB += mysqlclient ssl z
+.endif
+
+.if ${FLAVOR:Mpostgresql}
+CONFIGURE_ARGS+= --with-dhcp-pgsql=/usr/local/bin/pg_config
+BUILD_DEPENDS+=	databases/postgresql,-server
+LIB_DEPENDS+=	databases/postgresql
+WANTLIB += pq ssl
+.endif
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/kea
