@@ -46,13 +46,13 @@ SHARED_LIBS +=  kea-util                  0.0 # 1.0
 WANTLIB += c crypto log4cplus m pthread stdc++
 
 .if ${FLAVOR:Mmysql}
-CONFIGURE_ARGS+= --with-dhcp-mysql=/usr/local/bin/mysql_config
+CONFIGURE_ARGS+= --with-dhcp-mysql=${LOCALBASE}/bin/mysql_config
 LIB_DEPENDS+=	databases/mariadb
 WANTLIB += mysqlclient ssl z
 .endif
 
 .if ${FLAVOR:Mpostgresql}
-CONFIGURE_ARGS+= --with-dhcp-pgsql=/usr/local/bin/pg_config
+CONFIGURE_ARGS+= --with-dhcp-pgsql=${LOCALBASE}/bin/pg_config
 BUILD_DEPENDS+=	databases/postgresql,-server
 LIB_DEPENDS+=	databases/postgresql
 WANTLIB += pq ssl
@@ -60,7 +60,9 @@ WANTLIB += pq ssl
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/kea
-	${INSTALL_DATA} ${WRKSRC}/src/bin/keactrl/kea.conf ${PREFIX}/share/examples/kea
-	${INSTALL_DATA} ${WRKSRC}/src/bin/keactrl/keactrl.conf ${PREFIX}/share/examples/kea
+	${INSTALL_DATA} ${WRKSRC}/src/bin/keactrl/kea.conf \
+	${PREFIX}/share/examples/kea
+	${INSTALL_DATA} ${WRKSRC}/src/bin/keactrl/keactrl.conf \
+	${PREFIX}/share/examples/kea
 
 .include <bsd.port.mk>
