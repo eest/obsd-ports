@@ -1,6 +1,6 @@
 @comment $OpenBSD$
 @newgroup _kea:763
-@newuser _kea:763:_kea:daemon:KEA user:/nonexistent:/sbin/nologin
+@newuser _kea:763:_kea:daemon:Kea user:/nonexistent:/sbin/nologin
 @mode 0750
 @group _kea
 @sample /etc/kea/
