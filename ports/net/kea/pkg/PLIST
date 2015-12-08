@@ -1,11 +1,6 @@
 @comment $OpenBSD$
 @newgroup _kea:763
 @newuser _kea:763:_kea:daemon:Kea user:/nonexistent:/sbin/nologin
-@mode 0750
-@group _kea
-@sample /etc/kea/
-@mode
-@group
 @bin bin/message
 include/kea/
 include/kea/asio/
@@ -404,52 +399,36 @@ include/kea/stats/stats_mgr.h
 include/kea/util/
 include/kea/util/buffer.h
 include/kea/util/io_utilities.h
-lib/libkea-asiodns.a
 lib/libkea-asiodns.la
 @lib lib/libkea-asiodns.so.${LIBkea-asiodns_VERSION}
-lib/libkea-asiolink.a
 lib/libkea-asiolink.la
 @lib lib/libkea-asiolink.so.${LIBkea-asiolink_VERSION}
-lib/libkea-cc.a
 lib/libkea-cc.la
 @lib lib/libkea-cc.so.${LIBkea-cc_VERSION}
-lib/libkea-cfgclient.a
 lib/libkea-cfgclient.la
 @lib lib/libkea-cfgclient.so.${LIBkea-cfgclient_VERSION}
-lib/libkea-cryptolink.a
 lib/libkea-cryptolink.la
 @lib lib/libkea-cryptolink.so.${LIBkea-cryptolink_VERSION}
-lib/libkea-dhcp++.a
 lib/libkea-dhcp++.la
 @lib lib/libkea-dhcp++.so.${LIBkea-dhcp++_VERSION}
-lib/libkea-dhcp_ddns.a
 lib/libkea-dhcp_ddns.la
 @lib lib/libkea-dhcp_ddns.so.${LIBkea-dhcp_ddns_VERSION}
-lib/libkea-dhcpsrv.a
 lib/libkea-dhcpsrv.la
 @lib lib/libkea-dhcpsrv.so.${LIBkea-dhcpsrv_VERSION}
-lib/libkea-dns++.a
 lib/libkea-dns++.la
 @lib lib/libkea-dns++.so.${LIBkea-dns++_VERSION}
-lib/libkea-exceptions.a
 lib/libkea-exceptions.la
 @lib lib/libkea-exceptions.so.${LIBkea-exceptions_VERSION}
-lib/libkea-hooks.a
 lib/libkea-hooks.la
 @lib lib/libkea-hooks.so.${LIBkea-hooks_VERSION}
-lib/libkea-log.a
 lib/libkea-log.la
 @lib lib/libkea-log.so.${LIBkea-log_VERSION}
-lib/libkea-stats.a
 lib/libkea-stats.la
 @lib lib/libkea-stats.so.${LIBkea-stats_VERSION}
-lib/libkea-threads.a
 lib/libkea-threads.la
 @lib lib/libkea-threads.so.${LIBkea-threads_VERSION}
-lib/libkea-util-io.a
 lib/libkea-util-io.la
 @lib lib/libkea-util-io.so.${LIBkea-util-io_VERSION}
-lib/libkea-util.a
 lib/libkea-util.la
 @lib lib/libkea-util.so.${LIBkea-util_VERSION}
 lib/pkgconfig/dns++.pc
@@ -492,6 +471,11 @@ share/doc/kea/kea-guide.css
 share/doc/kea/kea-guide.html
 share/doc/kea/kea-guide.txt
 share/doc/kea/kea-messages.html
+@mode 0750
+@group _kea
+@sample /${SYSCONFDIR}/kea/
+@mode
+@group
 share/examples/kea/
 share/examples/kea/kea.conf
 @mode 0640
@@ -522,5 +506,4 @@ share/kea/scripts/pgsql/
 share/kea/scripts/pgsql/dhcpdb_create.pgsql
 share/kea/scripts/pgsql/lease_dump_1.0.sh
 @sample ${LOCALSTATEDIR}/kea/
-@sample ${LOCALSTATEDIR}/run/kea/
 @rcscript ${RCDIR}/kea
