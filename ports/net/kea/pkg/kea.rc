@@ -8,6 +8,14 @@ daemon="${TRUEPREFIX}/sbin/keactrl"
 
 pexp="${TRUEPREFIX}/sbin/kea-dhcp(4|6|-ddns)"
 
+rc_pre() {
+	if ! [ -d ${LOCALSTATEDIR}/run/kea ]; then
+	    mkdir -p ${LOCALSTATEDIR}/run/kea
+	    chown root:_kea ${LOCALSTATEDIR}/run/kea
+	    chmod 0775 ${LOCALSTATEDIR}/run/kea
+	fi
+}
+
 rc_start() {
 	${rcexec} "${daemon} start"
 }
