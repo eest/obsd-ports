@@ -44,6 +44,7 @@ LIB_DEPENDS=	devel/log4cplus
 FAKE_FLAGS=	sysconfdir=${PREFIX}/share/examples
 
 CONFIGURE_STYLE=	gnu
+CONFIGURE_ARGS+= --with-openssl=/usr
 
 LIBTOOL_FLAGS=	--tag=disable-static
 
