@@ -7,7 +7,7 @@ tdadmin/CMakeFiles/tdadmin.dir/main.cpp.o: In function `parse_opt(int, char*, ar
 main.cpp:(.text+0x3ee): undefined reference to `argp_usage'
 main.cpp:(.text+0x442): undefined reference to `argp_usage'
 
-...and :
+...and:
 tdadmin/CMakeFiles/tdadmin.dir/main.cpp.o: In function `handle_controller()':
 main.cpp:(.text+0xc7): undefined reference to `tdConnectTellStickController'
 main.cpp:(.text+0x12a): undefined reference to `tdDisconnectTellStickController'

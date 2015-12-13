@@ -1,4 +1,20 @@
 $OpenBSD$
+
+Fix the following build error:
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:15:19: warning: iconv.h: No such file or directory
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp: In function 'std::wstring TelldusCore::charToWstring(const char*)':
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:71: error: 'iconv_t' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:71: error: expected `;' before 'convDesc'
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:72: error: 'convDesc' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:72: error: 'iconv' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:73: error: 'iconv_close' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp: In function 'std::string TelldusCore::wideToString(const std::wstring&)':
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:216: error: 'iconv_t' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:216: error: expected `;' before 'convDesc'
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:217: error: 'convDesc' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:217: error: 'iconv' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/Strings.cpp:218: error: 'iconv_close' was not declared in this scope
+
 --- CMakeLists.txt.orig	Sun Dec 13 13:51:38 2015
 +++ CMakeLists.txt	Sun Dec 13 13:52:05 2015
 @@ -34,6 +34,11 @@ IF (CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
