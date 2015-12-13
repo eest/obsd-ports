@@ -17,8 +17,7 @@ MAINTAINER =		Patrik Lundin <patrik@sigterm.se>
 # LGPL
 PERMIT_PACKAGE_CDROM =	Yes
 
-# "make port-lib-depends-check" can help
-#WANTLIB =		???
+WANTLIB += c confuse ftdi iconv m pthread stdc++
 
 MASTER_SITES =		http://download.telldus.se/TellStick/Software/telldus-core/
 
