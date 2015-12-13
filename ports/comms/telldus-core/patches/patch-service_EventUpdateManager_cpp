@@ -1,0 +1,19 @@
+$OpenBSD$
+
+Fix the following build failure:
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/service/EventUpdateManager.cpp:182: error: 'environ' was not declared in this scope
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/service/EventUpdateManager.cpp:188: error: 'environ' was not declared in this scope
+
+--- service/EventUpdateManager.cpp.orig	Sun Dec 13 13:59:08 2015
++++ service/EventUpdateManager.cpp	Sun Dec 13 14:03:12 2015
+@@ -25,6 +25,10 @@
+ #include <vector>
+ #endif  // _LINUX
+ 
++#ifdef __OpenBSD__
++extern char **environ;
++#endif
++
+ #include "common/EventHandler.h"
+ #include "common/Message.h"
+ #include "common/Socket.h"

@@ -1,0 +1,17 @@
+$OpenBSD$
+
+Fix build failure:
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/common.h: In function 'void debuglogfilename(int, std::string, std::string)':
+/usr/ports/pobj/telldus-core-2.1.2/telldus-core-2.1.2/common/common.h:75: error: invalid static_cast from type 'pthread*' to type 'int'
+
+--- common/common.h.orig	Sun Dec 13 13:46:10 2015
++++ common/common.h	Sun Dec 13 13:46:30 2015
+@@ -70,7 +70,7 @@ inline void debuglogfilename(const int intMessage, con
+ 		file.close();
+ 	}
+ 
+-#elif !defined(_MACOSX) && !defined(__FreeBSD__)
++#elif !defined(_MACOSX) && !defined(__FreeBSD__) && !defined(__OpenBSD__)
+ 	pthread_t thread = pthread_self();
+ 	printf("[%i] %i - %s\n", static_cast<int>(thread), intMessage, strMessage.c_str());
+ 	fflush(stdout);

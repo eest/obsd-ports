@@ -1,0 +1,30 @@
+$OpenBSD$
+
+Fix two build problems:
+tdadmin/CMakeFiles/tdadmin.dir/main.cpp.o: In function `main':
+main.cpp:(.text+0x149): undefined reference to `argp_parse'
+tdadmin/CMakeFiles/tdadmin.dir/main.cpp.o: In function `parse_opt(int, char*, argp_state*)':
+main.cpp:(.text+0x3ee): undefined reference to `argp_usage'
+main.cpp:(.text+0x442): undefined reference to `argp_usage'
+
+...and :
+tdadmin/CMakeFiles/tdadmin.dir/main.cpp.o: In function `handle_controller()':
+main.cpp:(.text+0xc7): undefined reference to `tdConnectTellStickController'
+main.cpp:(.text+0x12a): undefined reference to `tdDisconnectTellStickController'
+
+--- tdadmin/CMakeLists.txt.orig	Sun Dec 13 14:56:38 2015
++++ tdadmin/CMakeLists.txt	Sun Dec 13 14:57:10 2015
+@@ -37,6 +37,13 @@ ELSEIF (CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
+ 		${CMAKE_BINARY_DIR}/client/libtelldus-core.so
+ 		${ARGP_LIBRARY}
+ 	)
++ELSEIF (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
++	# OpenBSD does not have argp in base libc; port devel/argp-standalone is required.
++	FIND_LIBRARY(ARGP_LIBRARY argp)
++	TARGET_LINK_LIBRARIES(tdadmin
++		${CMAKE_BINARY_DIR}/client/libtelldus-core.so
++		${ARGP_LIBRARY}
++	)
+ ELSE (WIN32)
+ 	TARGET_LINK_LIBRARIES(tdadmin
+ 		${CMAKE_BINARY_DIR}/client/libtelldus-core.so

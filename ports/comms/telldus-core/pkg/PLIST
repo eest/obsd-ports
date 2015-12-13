@@ -1,0 +1,9 @@
+@comment $OpenBSD$
+@bin bin/tdtool
+include/telldus-core.h
+@lib lib/libtelldus-core.so.${LIBtelldus-core_VERSION}
+@bin sbin/tdadmin
+@bin sbin/telldusd
+share/telldus-core/
+share/telldus-core/helpers/
+share/telldus-core/helpers/udev.sh

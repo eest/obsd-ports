@@ -1,0 +1,3 @@
+Telldus Core is the driver and tools for controlling a Telldus Technologies
+TellStick. It does not contain any GUI tools which makes it suitable for
+server use.

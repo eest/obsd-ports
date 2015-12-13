@@ -1,0 +1,28 @@
+$OpenBSD$
+
+Fix the following build failure:
+/usr/ports/pobj/telldus-core-2.1.2/build-amd64/client/libtelldus-core.so.2.1: undefined reference to `libiconv_open'
+/usr/ports/pobj/telldus-core-2.1.2/build-amd64/client/libtelldus-core.so.2.1: undefined reference to `libiconv_close'
+/usr/ports/pobj/telldus-core-2.1.2/build-amd64/client/libtelldus-core.so.2.1: undefined reference to `libiconv'
+
+--- common/CMakeLists.txt.orig	Sun Dec 13 14:06:30 2015
++++ common/CMakeLists.txt	Sun Dec 13 14:07:40 2015
+@@ -64,6 +64,18 @@ ELSEIF (CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
+ 	LIST(APPEND telldus-common_LIBRARIES
+ 		${ICONV_LIBRARY}
+ 	)
++ELSEIF (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
++	#### OpenBSD ####
++	FIND_LIBRARY(ICONV_LIBRARY iconv)
++	ADD_DEFINITIONS( -D_LINUX )
++	LIST(APPEND  telldus-common_SRCS
++		Event_unix.cpp
++		EventHandler_unix.cpp
++		Socket_unix.cpp
++	)
++	LIST(APPEND telldus-common_LIBRARIES
++		${ICONV_LIBRARY}
++	)
+ ELSE (APPLE)
+ 	#### Linux ####
+ 	ADD_DEFINITIONS( -D_LINUX )
