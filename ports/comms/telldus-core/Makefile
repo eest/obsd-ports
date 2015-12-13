@@ -21,20 +21,10 @@ WANTLIB += c confuse ftdi iconv m pthread stdc++
 
 MASTER_SITES =		http://download.telldus.se/TellStick/Software/telldus-core/
 
-# Dependencies
-#
 MODULES =		devel/cmake
-#BUILD_DEPENDS =	???
-#RUN_DEPENDS =		???
 LIB_DEPENDS =		devel/argp-standalone \
 			devel/libconfuse \
 			devel/libftdi \
 			converters/libiconv
-#TEST_DEPENDS =		???
-
-#MAKE_FLAGS =		???
-#MAKE_ENV =		???
-#FAKE_FLAGS =		???
-#TEST_FLAGS =		???
 
 .include <bsd.port.mk>
