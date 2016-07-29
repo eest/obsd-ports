@@ -1,4 +1,6 @@
 @comment $OpenBSD$
+@newgroup _telldusd:800
+@newuser _telldusd:800:_telldusd:daemon:telldusd Account:/nonexistent:/sbin/nologin
 @bin bin/tdtool
 include/telldus-core.h
 @lib lib/libtelldus-core.so.${LIBtelldus-core_VERSION}
@@ -7,3 +9,8 @@ include/telldus-core.h
 share/telldus-core/
 share/telldus-core/helpers/
 share/telldus-core/helpers/udev.sh
+@mode 0770
+@group _telldusd
+@sample ${LOCALSTATEDIR}/spool/telldusd/
+@mode
+@group

@@ -1,0 +1,12 @@
+$OpenBSD$
+--- service/CMakeLists.txt.orig	Mon Dec 21 18:53:24 2015
++++ service/CMakeLists.txt	Mon Dec 21 18:53:49 2015
+@@ -97,6 +97,8 @@ IF (UNIX AND NOT APPLE)
+ 	SET(SYSCONF_INSTALL_DIR "/etc" CACHE PATH "The sysconfig install dir (default prefix/etc)" )
+ 	IF (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+ 		SET(DEFAULT_STATE_INSTALL_DIR "/var/spool")
++	ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "OpenBSD")
++		SET(DEFAULT_STATE_INSTALL_DIR "/var/spool/telldusd")
+ 	ELSE ()
+ 		SET(DEFAULT_STATE_INSTALL_DIR "/var/state")
+ 	ENDIF ()
